@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/goal_A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="GOL"
+        app:layout_constraintBottom_toTopOf="@+id/teamA_string"
+        app:layout_constraintEnd_toEndOf="@+id/teamA_string"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/teamA_string" />
+
+    <TextView
+        android:id="@+id/teamA_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginBottom="104dp"
+        android:text="Team A"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/teamA_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+        app:layout_constraintEnd_toEndOf="@+id/teamA_string"
+        app:layout_constraintStart_toStartOf="@+id/teamA_string"
+        app:layout_constraintTop_toBottomOf="@+id/teamA_string" />
+
+    <TextView
+        android:id="@+id/teamB_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="104dp"
+        android:text="Team B"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/teamB_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+        app:layout_constraintEnd_toEndOf="@+id/teamB_string"
+        app:layout_constraintStart_toStartOf="@+id/teamB_string"
+        app:layout_constraintTop_toBottomOf="@+id/teamB_string" />
+
+    <Button
+        android:id="@+id/goal_teamB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GOL"
+        app:layout_constraintBottom_toTopOf="@+id/teamB_string"
+        app:layout_constraintEnd_toEndOf="@+id/teamB_string"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toStartOf="@+id/teamB_string" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
