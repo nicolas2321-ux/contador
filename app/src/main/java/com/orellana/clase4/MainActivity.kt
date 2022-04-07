@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var teamB_button: Button
     private var score_A = 0
     private var score_B = 0
+    private lateinit var savebtn: Button
 
 
 
@@ -21,14 +22,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initial()
-        stepup()
+
+        stepup(savedInstanceState)
         clickHandler()
          //si el elemento es nulo no lo va a ejecutar
-        savedInstanceState?.let {
-            bundle ->
-            score_A= bundle.getInt(KEY_SCORE_TEAM_A, score_A)
-            score_B= bundle.getInt(KEY_SCORE_TEAM_B, score_B)
-        }
+
 
     }
 
@@ -39,9 +37,15 @@ class MainActivity : AppCompatActivity() {
         teamB_text = findViewById(R.id.teamB_string)
         teamB_count = findViewById(R.id.teamB_count)
         teamB_button = findViewById(R.id.goal_teamB)
+        savebtn = findViewById(R.id.save_btn)
 
     }
-    private fun stepup (){
+    private fun stepup(savedInstanceState: Bundle?) {
+        savedInstanceState?.let {
+            savedInstanceState
+            score_A= savedInstanceState.getInt(KEY_SCORE_TEAM_A, score_A)
+            score_B= savedInstanceState.getInt(KEY_SCORE_TEAM_B, score_B)
+        }
         teamA_count.text = score_A.toString()
         teamB_count.text = score_B.toString()
 
@@ -55,6 +59,17 @@ class MainActivity : AppCompatActivity() {
             score_B++
             teamB_count.text = score_B.toString()
         }
+        savebtn.setOnClickListener(){
+            save()
+        }
+
+        // para crear otras pantallas click derecho en el archivo donde esta el main
+        //y seleccionas empty activity
+
+
+    }
+
+    private fun save (){
 
     }
 
@@ -63,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         outState.putInt(KEY_SCORE_TEAM_A,score_A)
         outState.putInt(KEY_SCORE_TEAM_B, score_B)
     }
-    companion object {
+    companion object { //para guardar las variables
         private const val KEY_SCORE_TEAM_A = "ScoreTeamA"
         private const val KEY_SCORE_TEAM_B = "ScoreTeanB"
     }
