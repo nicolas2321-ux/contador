@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">clase4</string>
+    <string name="winner">GANADOR</string>
+    <string name="loser">PERDEDOR</string>
 </resources>

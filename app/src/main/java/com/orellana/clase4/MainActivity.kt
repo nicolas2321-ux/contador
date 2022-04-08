@@ -1,5 +1,6 @@
 package com.orellana.clase4
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -64,13 +65,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         // para crear otras pantallas click derecho en el archivo donde esta el main
-        //y seleccionas empty activity
+        //y seleccionas empty activity y se declara en el androidmanifest
+
+        //para crear el archivo de language es click derecho en strings, locale, english
 
 
     }
 
     private fun save (){
-
+        //intent es para pasar de pantallas
+        val intent = Intent(this, ScoreActivity::class.java)
+        //para pasarle datos
+        intent.putExtra(KEY_SCORE_TEAM_A, score_A)
+        intent.putExtra(KEY_SCORE_TEAM_B, score_B)
+        startActivity(intent)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -79,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         outState.putInt(KEY_SCORE_TEAM_B, score_B)
     }
     companion object { //para guardar las variables
-        private const val KEY_SCORE_TEAM_A = "ScoreTeamA"
-        private const val KEY_SCORE_TEAM_B = "ScoreTeanB"
+         const val KEY_SCORE_TEAM_A = "ScoreTeamA"
+         const val KEY_SCORE_TEAM_B = "ScoreTeanB"
     }
 }
